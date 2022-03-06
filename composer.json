@@ -12,6 +12,7 @@
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
         "propaganistas/laravel-phone": "^4.3",
+        "renatomarinho/laravel-page-speed": "^2.0",
         "spatie/laravel-honeypot": "^3.0",
         "tcg/voyager": "^1.5"
     },

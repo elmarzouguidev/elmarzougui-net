@@ -16,6 +16,9 @@ Route::get('/blog', [WebController::class, 'blog'])->name('blog');
 
 Route::get('/blog/{post}', [WebController::class, 'singleBlog'])->name('blog.single');
 
+Route::get('/categories',[WebController::class,'categories'])->name('categories');
+Route::get('/categories/{category}',[WebController::class,'singleCategory'])->name('categories.single');
+
 Route::get('/contact', [WebController::class, 'contact'])->name('contact');
 Route::post('/contact', [WebController::class, 'contactMail'])->name('contact.send');
 

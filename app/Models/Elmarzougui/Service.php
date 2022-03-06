@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Models\Elmarzougui;
 
+use App\Models\Concerns\GetBySlug;
 use App\Models\Concerns\HasSlug;
 use App\Models\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -14,6 +15,7 @@ class Service extends Model
     use HasFactory;
     use HasUuid;
     use HasSlug;
+    use GetBySlug;
 
     /**
      * @var string[]|array<int,string>

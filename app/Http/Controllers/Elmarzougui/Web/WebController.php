@@ -9,6 +9,7 @@ use App\Http\Requests\Elmarzougui\Contact\ContactFormRequest;
 use App\Mail\Elmarzougui\Contact\ContactMail;
 use App\Models\Elmarzougui\Post;
 use App\Repositories\Blog\BlogInterface;
+use App\Repositories\Category\CategoryInterface;
 use App\Repositories\Slider\SliderInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -71,6 +72,19 @@ class WebController extends Controller
         }
         return redirect()->back()->with('error', 'Email was not send');
 
+    }
+
+
+    public function categories()
+    {
+        $categories = app(CategoryInterface::class)->getAll();
+
+        return view('pages.category.index', compact('categories'));
+    }
+
+    public function singleCategory()
+    {
+        return view('pages.category.single.index');
     }
 
 

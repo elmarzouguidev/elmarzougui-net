@@ -5,14 +5,12 @@ declare(strict_types=1);
 namespace App\Models\Elmarzougui;
 
 use App\Models\Concerns\GetBySlug;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
 
-class Post extends Model
+class Category extends Model
 {
     use HasFactory;
     use GetBySlug;
@@ -27,16 +25,10 @@ class Post extends Model
      */
     protected $casts = [];
 
-    public function tags()
+    public function posts()
     {
-        return $this->belongsToMany(Tag::class,'post_tag','post_id','tag_id');
+        return $this->hasMany(Post::class);
     }
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-
 
     public function getPhotoAttribute()
     {
@@ -51,14 +43,6 @@ class Post extends Model
 
     public function getUrlAttribute()
     {
-        return route('blog.single',$this->slug);
-    }
-
-    protected function shortDescription(): Attribute
-    {
-        return new Attribute(
-            fn () => Str::limit($this->excerpt, 100, ' (...)'),
-        );
+        return route('categories.single',$this->slug);
     }
 }
-
