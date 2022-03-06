@@ -28,4 +28,9 @@ class WebController extends Controller
     {
         return view('pages.service.index');
     }
+
+    public function price()
+    {
+        return view('pages.price.index');
+    }
 }
