@@ -18,4 +18,9 @@ class WebController extends Controller
 
         return view('pages.home.index', compact('sliders'));
     }
+
+    public function about()
+    {
+        return view('pages.about.index');
+    }
 }
