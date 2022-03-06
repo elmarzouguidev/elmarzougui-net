@@ -5,7 +5,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="blog-post">
-                            <img src="{{asset('images/blog/blog-lg.jpg')}}" alt="" class="img-fluid">
+                            <img src="{{$post->photo}}" alt="" class="img-fluid">
                             <div class="mt-4 mb-3 d-flex">
                                 <div class="post-author mr-3">
                                     <i class="fa fa-user"></i>
@@ -14,21 +14,16 @@
 
                                 <div class="post-info">
                                     <i class="fa fa-calendar-check"></i>
-                                    <span>19 jun 18</span>
+                                    <span>{{$post->create_at_formated}}</span>
                                 </div>
                             </div>
 
-                            <a href="#" class="h4 ">Grow your site with latest startegy</a>
+                            <a href="{{$post->url}}" class="h4 ">{{$post->title}}</a>
 
-                            <p class="mt-3">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi, aliquid perspiciatis voluptate voluptatibus, dolorem laboriosam deleniti dolores reprehenderit nostrum odit, fuga iusto perferendis quas suscipit corporis obcaecati maxime provident cumque!</p>
-                            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veri.</p>
+                            <p class="mt-3">
+                                {!! $post->body !!}
+                            </p>
 
-                            <blockquote class="quote">
-                                <i class="fa fa-quote-left"></i>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam nobis, molestias ipsam assumenda debitis quibusdam mollitia laudantium facere neque quas optio sequi eligendi recusandae, veritatis dicta asperiores ex fugiat quasi!
-                            </blockquote>
-
-                            <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
                             <div class="mt-5 mb-3">
                                 <h5 class="d-inline-block mr-3">Tags:</h5>
                                 <ul class="list-inline d-inline-block">
@@ -114,63 +109,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="sidebar-widget search">
-                            <div class="form-group">
-                                <input type="text" placeholder="search" class="form-control">
-                                <i class="fa fa-search"></i>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="col-lg-12">
-                        <div class="sidebar-widget about-bar">
-                            <h5 class="mb-3">About us</h5>
-                            <p>Nostrum ullam porro iusto. Fugit eveniet sapiente nobis nesciunt velit cum fuga doloremque dignissimos asperiores</p>
-                        </div>
-                    </div>
+            @include('pages.blog.single.__sidebar')
 
-                    <div class="col-lg-12">
-                        <div class="sidebar-widget category">
-                            <h5 class="mb-3">Category</h5>
-                            <ul class="list-styled">
-                                <li>Marketing</li>
-                                <li>Digiatl</li>
-                                <li>SEO</li>
-                                <li>Web Design</li>
-                                <li>Development</li>
-                                <li>video</li>
-                                <li>audio</li>
-                                <li>slider</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-12">
-                        <div class="sidebar-widget tag">
-                            <a href="#">web</a>
-                            <a href="#">development</a>
-                            <a href="#">seo</a>
-                            <a href="#">marketing</a>
-                            <a href="#">branding</a>
-                            <a href="#">web deisgn</a>
-                            <a href="#">Tutorial</a>
-                            <a href="#">Tips</a>
-                            <a href="#">Design trend</a>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="sidebar-widget download">
-                            <h5 class="mb-4">Download Files</h5>
-                            <a href="#"> <i class="fa fa-file-pdf"></i>Company Manual</a>
-                            <a href="#"> <i class="fa fa-file-pdf"></i>Company Profile</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
         </div>
     </div>
 

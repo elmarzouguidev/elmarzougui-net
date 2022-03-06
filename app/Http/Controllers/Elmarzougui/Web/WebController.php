@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Elmarzougui\Web;
 
 use App\Http\Controllers\Controller;
 use App\Models\Elmarzougui\Post;
+use App\Repositories\Blog\BlogInterface;
 use App\Repositories\Slider\SliderInterface;
 use Illuminate\Http\Request;
 
@@ -37,12 +38,14 @@ class WebController extends Controller
 
     public function blog()
     {
-        return view('pages.blog.index');
+        $posts = app(BlogInterface::class)->getAll();
+
+        return view('pages.blog.index', compact('posts'));
     }
 
-    public function singleBlog()
+    public function singleBlog(Post $post)
     {
-        return view('pages.blog.single.index');
+        return view('pages.blog.single.index', compact('post'));
     }
 
     public function contact()
