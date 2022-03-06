@@ -8,6 +8,8 @@
 
     </ul>
     <p>
+        message : <br>
+
       {{$data->message}}.
     </p>
 </div>

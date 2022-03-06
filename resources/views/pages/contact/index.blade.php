@@ -4,6 +4,6 @@
 
     @include('pages.contact.__top')
     @include('pages.contact.__contact')
-    @include('pages.contact.__map')
+    {{--@include('pages.contact.__map')--}}
 
 @endsection()
