@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Elmarzougui\Web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Elmarzougui\Post;
 use App\Repositories\Slider\SliderInterface;
 use Illuminate\Http\Request;
 
@@ -32,5 +33,20 @@ class WebController extends Controller
     public function price()
     {
         return view('pages.price.index');
+    }
+
+    public function blog()
+    {
+        return view('pages.blog.index');
+    }
+
+    public function singleBlog()
+    {
+        return view('pages.blog.single.index');
+    }
+
+    public function contact()
+    {
+        return view('pages.contact.index');
     }
 }

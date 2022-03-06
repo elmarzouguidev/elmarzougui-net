@@ -12,7 +12,14 @@ Route::get('/services', [WebController::class, 'service'])->name('service');
 
 Route::get('/prices', [WebController::class, 'price'])->name('price');
 
+Route::get('/blog', [WebController::class, 'blog'])->name('blog');
+
+Route::get('/blog/{post}', [WebController::class, 'singleBlog'])->name('blog.single');
+
+Route::get('/contact', [WebController::class, 'contact'])->name('contact');
 
 Route::group(['prefix' => 'theadmin'], function () {
+
     Voyager::routes();
+
 });
