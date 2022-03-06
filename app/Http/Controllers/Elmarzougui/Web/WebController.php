@@ -23,4 +23,9 @@ class WebController extends Controller
     {
         return view('pages.about.index');
     }
+
+    public function service()
+    {
+        return view('pages.service.index');
+    }
 }

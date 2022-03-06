@@ -19,7 +19,7 @@
                     <a class="nav-link smoth-scroll" href="{{route('about')}}">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link smoth-scroll" href="service.html">Service</a>
+                    <a class="nav-link smoth-scroll" href="{{route('service')}}">Service</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link smoth-scroll" href="pricing.html">Pricing</a>
