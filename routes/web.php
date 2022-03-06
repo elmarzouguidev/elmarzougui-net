@@ -17,6 +17,7 @@ Route::get('/blog', [WebController::class, 'blog'])->name('blog');
 Route::get('/blog/{post}', [WebController::class, 'singleBlog'])->name('blog.single');
 
 Route::get('/contact', [WebController::class, 'contact'])->name('contact');
+Route::post('/contact', [WebController::class, 'contactMail'])->name('contact.send');
 
 Route::group(['prefix' => 'theadmin'], function () {
 

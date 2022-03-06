@@ -5,10 +5,13 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Elmarzougui\Web;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Elmarzougui\Contact\ContactFormRequest;
+use App\Mail\Elmarzougui\Contact\ContactMail;
 use App\Models\Elmarzougui\Post;
 use App\Repositories\Blog\BlogInterface;
 use App\Repositories\Slider\SliderInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class WebController extends Controller
 {
@@ -52,4 +55,23 @@ class WebController extends Controller
     {
         return view('pages.contact.index');
     }
+
+    public function contactMail(ContactFormRequest $request)
+    {
+        //dd($request->validated());
+
+        if (isConnected()) {
+
+            Mail::to('abdelgha4or@gmail.com')->send(new ContactMail($request->validated()));
+
+            if (empty(Mail::failures())) {
+
+                return redirect()->back()->with('success', 'merci votre email a été envoyé avec succès');
+            }
+        }
+        return redirect()->back()->with('error', 'Email was not send');
+
+    }
+
+
 }

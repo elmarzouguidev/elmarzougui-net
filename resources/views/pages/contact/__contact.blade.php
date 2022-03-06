@@ -10,29 +10,58 @@
         </div>
         <div class="row">
             <div class="col-lg-7 col-sm-12">
-                <form class="contact__form" method="post" action="">
+                <form class="contact__form" method="post" action="{{route('contact.send')}}">
                     @csrf
+                    @honeypot
                     <!-- form message -->
                     <div class="row">
                         <div class="col-12">
-                            <div class="alert alert-success contact__msg" style="display: none" role="alert">
-                                Your message was sent successfully.
-                            </div>
+
+                            @if (session('error'))
+                                <div class="alert alert-danger contact__msg" role="alert">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+                            @if (session('success'))
+                                <div class="alert alert-success contact__msg" role="alert">
+                                    {{ session('success') }}
+                                </div>
+                            @endif
                         </div>
                     </div>
                     <!-- end message -->
                     <div class="row">
                         <div class="col-md-6 form-group">
-                            <input name="name" type="text" class="form-control" placeholder="Name" required>
+                            <input name="name" type="text" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" placeholder="Entrer votre nom" required>
+                            @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="col-md-6 form-group">
-                            <input name="email" type="email" class="form-control" placeholder="Email" required>
+                            <input name="email" type="email" class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}" placeholder="Entrer votre e-mail" required>
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                         <div class="col-md-12 form-group">
-                            <input name="subject" type="text" class="form-control" placeholder="Subject" required>
+                            <input name="telephone" type="text" class="form-control @error('telephone') is-invalid @enderror" value="{{old('telephone')}}" placeholder="Entrer votre téléphone">
+                            @error('telephone')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                         <div class="col-12 form-group">
-                            <textarea name="message" class="form-control" rows="6" placeholder="Message" required></textarea>
+                            <textarea name="message" class="form-control @error('message') is-invalid @enderror" rows="6" placeholder="Message" required>{{old('message')}}</textarea>
+                            @error('message')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                         <div class="col-12 mt-4">
                             <input name="submit" type="submit" class=" btn btn-hero btn-circled" value="Send Message">

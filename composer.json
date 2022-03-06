@@ -11,6 +11,8 @@
         "laravel/framework": "^8.75",
         "laravel/sanctum": "^2.11",
         "laravel/tinker": "^2.5",
+        "propaganistas/laravel-phone": "^4.3",
+        "spatie/laravel-honeypot": "^3.0",
         "tcg/voyager": "^1.5"
     },
     "require-dev": {
